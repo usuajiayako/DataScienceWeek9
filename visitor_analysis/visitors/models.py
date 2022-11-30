@@ -6,4 +6,6 @@ class Visitor(models.Model):
     age = models.IntegerField()
     gender = models.CharField(max_length = 2)
     date = models.DateTimeField(auto_now_add = True)
-    number = models.IntegerField()
+
+    # def __int__(self):
+    #     return self.id

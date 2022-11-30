@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visitors</title>
+    <link rel="stylesheet" href="{% static 'styles.css'%}">
+
 </head>
 <body>
-    <p>visitors page</p>
+    <h1>Visitors List</h1>
+    <div class="visitors">
+        {% for visitor in visitors %}
+        <div class="visitor">
+            <h2><a href="#">{{visitor.id}}</a></h2>
+            <p>{{visitor.age}}</p>
+            <p>{{visitor.gender}}</p>
+            <p>{{visitor.date}}</p>
+        </div>
+
+        {% endfor %}
+    </div>
 </body>
 </html>
