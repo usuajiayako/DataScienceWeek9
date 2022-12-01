@@ -1,12 +1,12 @@
 body {
     background-color: #0f121f;
     background-image: url(/static/stars.png);
-    /* background-repeat-y: no-repeat; */
+    background-repeat: no-repeat;
     color: #fff;
 }
 
 body *{
-    font-family: cursive;
+    font-family:  "Gill Sans", sans-serif;
 }
 
 h1, h2, h3, h4, h5{

@@ -1,27 +1,15 @@
-{% load static %}
+{% extends 'base_layout.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visitors</title>
-    <link rel="stylesheet" href="{% static 'styles.css'%}">
-
-</head>
-<body>
+{% block content %}
     <h1>Visitors List</h1>
     <div class="visitors">
         {% for visitor in visitors %}
         <div class="visitor">
-            <h2><a href="#">{{visitor.id}}</a></h2>
-            <p>{{visitor.age}}</p>
-            <p>{{visitor.gender}}</p>
-            <p>{{visitor.date}}</p>
+            <p>Id:{{visitor.id}}</p>
+            <p>Age:{{visitor.age}}</p>
+            <p>Gender:{{visitor.gender}}</p>
+            <p>Date:{{visitor.date}}</p>
         </div>
-
         {% endfor %}
     </div>
-</body>
-</html>
+{% endblock %}
