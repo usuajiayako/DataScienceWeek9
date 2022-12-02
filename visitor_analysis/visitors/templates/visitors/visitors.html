@@ -5,7 +5,7 @@
     <div class="visitors">
         {% for visitor in visitors %}
         <div class="visitor">
-            <p>Id:{{visitor.id}}</p>
+            <p><a href="/visitors/{{visitor.id}}">Id:{{visitor.id}}</a></p>
             <p>Age:{{visitor.age}}</p>
             <p>Gender:{{visitor.gender}}</p>
             <p>Date:{{visitor.date}}</p>
