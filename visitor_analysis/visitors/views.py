@@ -18,7 +18,9 @@ def visitor_register(request):
     if request.method == 'POST':
         form = forms.RegisterVisitor(request.POST, request.FILES)
         if form.is_valid():
-
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
             return redirect("visitors:list")
     else:
         form = forms.RegisterVisitor()
