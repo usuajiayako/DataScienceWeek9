@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Visitor
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from . import forms
 # Create your views here.
 
 def visitors(request):
@@ -14,4 +15,11 @@ def visitor_detail(request, id):
 
 @login_required(login_url="/accounts/login/")
 def visitor_register(request):
-    return render(request, 'visitors/visitor_register.html')
+    if request.method == 'POST':
+        form = forms.RegisterVisitor(request.POST, request.FILES)
+        if form.is_valid():
+
+            return redirect("visitors:list")
+    else:
+        form = forms.RegisterVisitor()
+    return render(request, 'visitors/visitor_register.html', {'form':form})
