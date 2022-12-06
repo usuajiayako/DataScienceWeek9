@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Visitor
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def visitors(request):
@@ -10,3 +11,7 @@ def visitors(request):
 def visitor_detail(request, id):
     visitor = Visitor.objects.get(id=id)
     return render(request, 'visitors/visitor_detail.html', {'visitor':visitor})
+
+@login_required(login_url="/accounts/login/")
+def visitor_register(request):
+    return render(request, 'visitors/visitor_register.html')
