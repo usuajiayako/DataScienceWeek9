@@ -21,7 +21,7 @@ def visitor_register(request):
             instance = form.save(commit=False)
             instance.user = request.user
             instance.save()
-            return redirect("visitors:list")
+            return redirect("visitors:register")
     else:
         form = forms.RegisterVisitor()
     return render(request, 'visitors/visitor_register.html', {'form':form})
