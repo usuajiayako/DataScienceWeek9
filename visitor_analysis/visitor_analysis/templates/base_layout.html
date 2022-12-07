@@ -11,11 +11,10 @@
 </head>
 <body>
     <header class="wrapper">
-        
-        <h1><a href="{% url 'visitors:list' %}">Visitor Page</a></h1>
+        {% if user.is_authenticated %}
+        <h1><a href="{% url 'visitors:list' %}">Visitor List Page</a></h1>
         <nav>
             <ul>
-                {% if user.is_authenticated %}
                 <li>
                     <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                         {% csrf_token %}
@@ -25,10 +24,14 @@
                 <li>
                     <a href="{% url 'visitors:register' %}" class="highlight">Register Visitor</a>
                 </li>
-                {% else %}
+            </ul>
+        </nav>
+        {% else %}
+        <nav>
+            <ul>
                 <li><a href="{% url 'accounts:login'%}">Login</a></li>
                 <li><a href="{% url 'accounts:signup'%}">Signup</a></li>
-                {% endif %}
+        {% endif %}
             </ul>
         </nav>
     </header>
