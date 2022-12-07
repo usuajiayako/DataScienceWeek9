@@ -9,6 +9,7 @@
             <p>Age:{{visitor.age}}</p>
             <p>Gender:{{visitor.gender}}</p>
             <p>Date:{{visitor.date}}</p>
+            <p class="user">registered by {{ visitor.user.username }}</p>
         </div>
         {% endfor %}
     </div>

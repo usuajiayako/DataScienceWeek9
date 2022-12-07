@@ -1,4 +1,4 @@
-{% load static %}
+{% load static from static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,10 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visitors</title>
-    <link rel="stylesheet" href="{% static 'styles.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <div class="wrapper">
+    <header class="wrapper">
+        
         <h1><a href="{% url 'visitors:list' %}">Visitor Page</a></h1>
         <nav>
             <ul>
@@ -19,16 +20,19 @@
                     <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                         {% csrf_token %}
                         <button type = "submit">Logout</button>
-
                     </form>
                 </li>
-                <li><a href="{% url 'visitors:register'%}"></a>Register Visitor</li>
+                <li>
+                    <a href="{% url 'visitors:register' %}" class="highlight">Register Visitor</a>
+                </li>
                 {% else %}
                 <li><a href="{% url 'accounts:login'%}">Login</a></li>
                 <li><a href="{% url 'accounts:signup'%}">Signup</a></li>
                 {% endif %}
             </ul>
         </nav>
+    </header>
+    <div class="wrapper">
         {% block content %}
         {% endblock %}
     </div>
