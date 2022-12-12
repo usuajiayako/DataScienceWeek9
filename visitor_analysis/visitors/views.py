@@ -25,3 +25,7 @@ def visitor_register(request):
     else:
         form = forms.RegisterVisitor()
     return render(request, 'visitors/visitor_register.html', {'form':form})
+
+@login_required(login_url="/accounts/login/")
+def visitor_report(request):
+    return render(request, 'visitors/report.html')
