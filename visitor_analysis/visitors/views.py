@@ -5,6 +5,9 @@ from django.contrib.auth.decorators import login_required
 from . import forms
 from . import report
 from . import analysis
+
+from django.http import JsonResponse
+from django.core import serializers
 # Create your views here.
 
 def visitors(request):
@@ -36,3 +39,11 @@ def visitor_report(request):
         img = analysis.analysis(df)
         return render(request, 'visitors/report_detail.html', {'data':df})
     return render(request, 'visitors/report.html')
+
+def dashboard_with_pivot(request):
+    return render(request, 'visitors/dashboard_with_pivot.html', {})
+
+def pivot_data(request):
+    dataset = Visitor.objects.all()
+    data = serializers.serialize('json', dataset)
+    return JsonResponse(data, safe=False)
