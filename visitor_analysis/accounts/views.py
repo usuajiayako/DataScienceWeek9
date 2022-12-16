@@ -14,7 +14,7 @@ def signup_view(request):
             return redirect('visitors:list')
     else:
         form = UserCreationForm()
-    return render(request, 'accounts/signup.html', {'form':form})\
+    return render(request, 'accounts/signup.html', {'form':form})
 
 def login_view(request):
     if request.method == 'POST':

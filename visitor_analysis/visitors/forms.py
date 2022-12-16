@@ -4,4 +4,4 @@ from . import models
 class RegisterVisitor(forms.ModelForm):
     class Meta:
         model = models.Visitor
-        fields = ['age', 'gender','thumb']
+        fields = ['age', 'gender', 'thumb'] # deleted 'thumb'

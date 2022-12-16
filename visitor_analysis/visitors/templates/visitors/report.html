@@ -3,6 +3,12 @@
 {% block content %}
     <h1>Report</h1>
     <div class="report">
+        <form class="report" action="{% url 'visitors:report' %}" method="post">
+            {% csrf_token %}
+            <input type="date" id="date" name="date">
+            <button type = "submit">See the Report</button>
+        </form>
+    </li>
      
     </div>
 {% endblock %}

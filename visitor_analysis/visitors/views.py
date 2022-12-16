@@ -3,6 +3,8 @@ from .models import Visitor
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from . import forms
+from . import report
+from . import analysis
 # Create your views here.
 
 def visitors(request):
@@ -28,4 +30,9 @@ def visitor_register(request):
 
 @login_required(login_url="/accounts/login/")
 def visitor_report(request):
+    if request.method == 'POST':
+        date = request.POST.get("date")
+        df = report.data_to_df()
+        img = analysis.analysis(df)
+        return render(request, 'visitors/report_detail.html', {'data':df})
     return render(request, 'visitors/report.html')
