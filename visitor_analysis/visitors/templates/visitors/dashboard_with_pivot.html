@@ -62,7 +62,7 @@ $.ajax({
                             "type": "number"
                         },
                         "date": {
-                            "caption": "Date"
+                            "caption": "Date",
                         },
                         "user_id": {
                             "caption": "User ID",
@@ -70,32 +70,32 @@ $.ajax({
                         },
                         "gender": {
                             "caption": "Gender",
-                            "type": "number"
+                            "type": "string"
                         }
                     }
                 },
-                "slice": {
-                    "rows": [{
-                        "uniqueName": "age"
-                    }],
-                    "columns": [{
-                            "uniqueName": "date"
-                        },
-                        {
-                            "uniqueName": "[Measures]"
-                        }
+                // "slice": {
+                //     "rows": [{
+                //         "uniqueName": "age"
+                //     }],
+                //     "columns": [{
+                //             "uniqueName": "date"
+                //         },
+                //         {
+                //             "uniqueName": "[Measures]"
+                //         }
 
-                    ],
-                    "measures": [{
-                            "uniqueName": "user_id",
-                            "aggregation": "sum"
-                        },
-                        {
-                            "uniqueName": "gender",
-                            "aggregation": "sum"
-                        }
-                    ]
-                }
+                //     ],
+                //     "measures": [{
+                //             "uniqueName": "user_id",
+                //             "aggregation": "sum"
+                //         },
+                //         {
+                //             "uniqueName": "gender",
+                //             "aggregation": "sum"
+                //         }
+                //     ]
+                // }
             }
         });
         // new Flexmonster({

@@ -36,8 +36,9 @@ def visitor_report(request):
     if request.method == 'POST':
         date = request.POST.get("date")
         df = report.data_to_df()
-        img = analysis.analysis(df)
-        return render(request, 'visitors/report_detail.html', {'data':df})
+        # analysis.analysis(df)
+        print(df)
+        return render(request, 'visitors/report_detail.html', {'df': df})
     return render(request, 'visitors/report.html')
 
 def dashboard_with_pivot(request):

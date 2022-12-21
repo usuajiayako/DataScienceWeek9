@@ -6,6 +6,5 @@ import seaborn as sns
 def analysis(df):
     print(df.head())
     sns.set_palette("pastel")
-
-    plt.pie(df["age"].value_counts(), labels = ["", ""], autopct = "%1.1f%%")
+    plt.pie(df["age"].value_counts(), labels = ["female", "male"], autopct = "%1.1f%%")
     plt.show()
