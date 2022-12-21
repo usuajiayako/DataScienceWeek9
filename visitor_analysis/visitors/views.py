@@ -31,16 +31,18 @@ def visitor_register(request):
         form = forms.RegisterVisitor()
     return render(request, 'visitors/visitor_register.html', {'form':form})
 
+# Report
 @login_required(login_url="/accounts/login/")
 def visitor_report(request):
     if request.method == 'POST':
         date = request.POST.get("date")
-        df = report.data_to_df()
+        selected = Visitor.objects.filter(date=date)
+        df = report.data_to_df(selected)
         # analysis.analysis(df)
-        print(df)
         return render(request, 'visitors/report_detail.html', {'df': df})
-    return render(request, 'visitors/report.html')
+    return render(request, 'visitors/report.html') 
 
+# Dashboard
 def dashboard_with_pivot(request):
     return render(request, 'visitors/dashboard_with_pivot.html', {})
 

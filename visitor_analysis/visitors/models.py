@@ -22,7 +22,8 @@ GENDER_CHOICES = [
 class Visitor(models.Model):
     age = models.IntegerField(choices=AGE_CHOICE)
     gender = models.CharField(max_length = 2, choices = GENDER_CHOICES)
-    date = models.DateTimeField(auto_now_add = True)
+    date = models.DateField(auto_now_add = True)
+    time = models.TimeField(auto_now_add = True)
     # thumb = models.ImageField(default = 'default.png', blank = True)
     user = models.ForeignKey(User, default = None, on_delete=models.CASCADE)
 
