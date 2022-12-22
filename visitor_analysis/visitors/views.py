@@ -40,7 +40,9 @@ def visitor_report(request):
         df, df_csv = report.data_to_df(selected_date) # visitor table
         visitor_num = Visitor.objects.filter(date=date).count() # total number of visitor
         gender = analysis.gender_analysis(df_csv) # gender ratio pie chart
-        return render(request, 'visitors/report_detail.html', {'df': df, 'visitor_number':visitor_num, 'gender':gender})
+        age = analysis.age_analysis(df_csv) # age dischart
+        time = analysis.time_analysis(df_csv) # time dischart
+        return render(request, 'visitors/report_detail.html', {'df': df, 'visitor_number':visitor_num, 'gender':gender, 'age':age, 'time':time})
     return render(request, 'visitors/report.html') 
 
 # Dashboard
