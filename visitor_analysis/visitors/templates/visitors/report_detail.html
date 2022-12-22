@@ -1,11 +1,11 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
-    <h1>Report Detail</h1>
+    <h1>Report Detail : {{date}}</h1>
     <div class="report_detail">
         <h2>Visitor table</h2>
             <div>{{df|safe}}</div>
-            <p>Total number of visitor : {{visitor_number}}</p>
+            <h2>Total number of visitor : {{visitor_number}}</h2>
             <img src = "data:image/png;base64, {{ gender }}" alt="" height="250",width="250">
             <img src = "data:image/png;base64, {{ age }}" alt="" height="250",width="250">
             <img src = "data:image/png;base64, {{ time }}" alt="" height="250",width="250">

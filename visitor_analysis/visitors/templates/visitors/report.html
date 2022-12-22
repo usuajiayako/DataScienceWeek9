@@ -5,8 +5,8 @@
     <div class="report">
         <form class="report" action="{% url 'visitors:report' %}" method="post">
             {% csrf_token %}
-            <input type="date" id="date" name='date' required>
-            <button type = "submit">See the Report</button>
+            <input class="report_form" type="date" id="date" name='date' required>
+            <button type="submit">See Report</button>
         </form>
     </li>
      

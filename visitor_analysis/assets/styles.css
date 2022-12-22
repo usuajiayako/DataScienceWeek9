@@ -120,6 +120,20 @@ a.highlight{
     color: #00dba0;
 }
 
+.report{
+    text-align: center;
+}
+
+.report_form, button{
+    border: 1px solid #00dba0;
+    background: none;
+    color: #00dba0;
+    padding: 10px;
+    margin-left: 20px;
+    border-radius: 4px;
+}
+
+
 .helptext, .helptext ul{
     margin: 0 auto 20px;
     color: #bbb;
