@@ -36,10 +36,11 @@ def visitor_register(request):
 def visitor_report(request):
     if request.method == 'POST':
         date = request.POST.get("date")
-        selected = Visitor.objects.filter(date=date)
-        df = report.data_to_df(selected)
-        # analysis.analysis(df)
-        return render(request, 'visitors/report_detail.html', {'df': df})
+        selected_date = Visitor.objects.filter(date=date)
+        df, df_csv = report.data_to_df(selected_date) # visitor table
+        visitor_num = Visitor.objects.filter(date=date).count() # total number of visitor
+        gender = analysis.gender_analysis(df_csv) # gender ratio pie chart
+        return render(request, 'visitors/report_detail.html', {'df': df, 'visitor_number':visitor_num, 'gender':gender})
     return render(request, 'visitors/report.html') 
 
 # Dashboard
