@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="register-visitor">
-    <h2>Register a visitor</h2>
+    <h2>Register Visitor</h2>
     <form class="site-form" action="{% url 'visitors:register' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{form}}

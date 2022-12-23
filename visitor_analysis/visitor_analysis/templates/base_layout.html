@@ -12,7 +12,7 @@
 <body>
     <header class="wrapper">
         {% if user.is_authenticated %}
-        <h1><a href="{% url 'visitors:list' %}">Visitor List</a></h1>
+        <!-- <h1><a href="{% url 'visitors:list' %}">Visitor List</a></h1> -->
         <h1><a href="{% url 'visitors:report' %}">Report</a></h1>
         <h1><a href="{% url 'visitors:dashboard_with_pivot' %}">Dashboard(Flexmonster)</a></h1>
         <nav>
